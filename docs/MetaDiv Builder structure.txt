@@ -1,0 +1,75 @@
+META DIV BUILDER V1.7.3/
+├── MetaDiv_Builder_V1_7_3.py
+│
+├── docs/
+│     ├── logo.png
+│     ├── MetaDiv Builder architecture.txt
+│     └── User Manual.pdf
+│
+├── input/
+│   │
+│   ├── ITS/
+│   │   ├── DatasetName_abundance.csv
+│   │   ├── DatasetName_sequences.fasta
+│   │   └── DatasetName_taxonomy.sintax
+│   │
+│   ├── 16S/
+│   │   ├── DatasetName_abundance.csv
+│   │   ├── DatasetName_sequences.fasta
+│   │   └── DatasetName_taxonomy.sintax
+│   │
+│   └── CO1/
+│       ├── DatasetName_abundance.csv
+│       ├── DatasetName_sequences.fasta
+│       └── DatasetName_taxonomy.sintax
+│
+├── databases/
+│   ├── ecological_reference_db
+│   │          Fungal_Traits_DB.txt
+│   │          FAPROTAX.txt
+│   │
+│   └── taxonomic_reference_db 
+│              SINTAX_EUKARYOME_ITS_v2.0.udb
+│              SINTAX_ITGDB_seq.udb
+│              SINTAX_MIDORI2_LONGEST_NUC_GB271_CO1.udb
+│                
+│
+├── output/
+│   │
+│   ├── ITS/
+│   │   ├── concatenated_tables/
+│   │   ├── FINAL_DB/
+│   │   ├── For_R/
+│   │   ├── Functional_Ecology/
+│   │   └── Krona/
+│   │
+│   ├── 16S/
+│   │   ├── concatenated_tables/
+│   │   ├── FINAL_DB/
+│   │   ├── For_R/
+│   │   ├── Functional_Ecology/
+│   │   └── Krona/
+│   │
+│   └── CO1/
+│       ├── concatenated_tables/
+│       ├── FINAL_DB/
+│       ├── For_R/
+│       ├── Functional_Ecology/
+│       └── Krona/
+│
+├── R/
+│     ├── 00_01_02_03_MetaDiv_ps_explorer_alpha_recursivo.R
+│     ├── 04_MetaDiv_iNEXT_Hill_Numbers.R
+│     └── 05_MetaDiv_ordination_NMDS_Hellinger_taxglom
+│      
+│
+├── BLAST/
+│   ├── SCRIPT BLAST.py
+│   ├── query/
+│   └── blast_results/
+│
+└── subsets/
+    ├── query_lists/
+    ├── subset_by_headers/
+    ├── subset_by_sites/
+    └── subset_by_taxonomy/
