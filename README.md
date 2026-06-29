@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Burn121212/DB-Builder/main/docs/METADIV%20BUILDER%20LOGO%20V1.png" alt="MetaDiv Builder Logo" width="300"/>
+</p>
+
 # MetaDiv Builder
 
 > **An integrated platform for metabarcoding data integration, ecological annotation, and biodiversity analysis**
