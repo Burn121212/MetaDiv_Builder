@@ -1,310 +1,413 @@
-# DB-Builder
+# MetaDiv Builder
 
-> Reproducible metabarcoding database construction pipeline
+> **An integrated platform for metabarcoding data integration, ecological annotation, and biodiversity analysis**
 
-DB-Builder is a reproducible Snakemake-based pipeline for integrating metabarcoding datasets into standardized biodiversity databases. It combines taxonomic annotations, representative sequences, and abundance tables into unified matrices, and enables taxonomic collapsing of sequence variants using SINTAX confidence thresholds. This facilitates large-scale ecological and biodiversity analyses. Functional annotations for fungi are derived from the [fungaltraits database](https://github.com/traitecoevo/fungaltraits).
+MetaDiv Builder is an open-source platform designed to transform heterogeneous metabarcoding outputs into standardized biodiversity databases ready for ecological analyses. The platform integrates abundance tables, representative sequences, and SINTAX taxonomic classifications while preserving taxonomic traceability through persistent identifiers (SPPN).
 
----
+Unlike traditional post-processing tools that focus on a single molecular marker or sequencing pipeline, MetaDiv Builder supports multiple metabarcoding markers (**ITS**, **16S rRNA**, and **CO1**) and provides a unified workflow for taxonomic harmonization, ecological annotation, database construction, visualization, and downstream analyses.
 
-## 📑 Table of Contents
-
-* [Workflow](#-workflow)
-* [Installation](#-installation)
-* [Usage](#-usage)
-* [Input](#-input)
-* [Output](#-output)
-* [Pipeline Details](#-pipeline-details)
-* [Common Issues](#-common-issues)
-* [License](#-license)
+The platform currently integrates ecological reference databases such as **FungalTraits** (fungi) and **FAPROTAX** (prokaryotes), exports **phyloseq-compatible** datasets for R, generates **Krona** visualizations, and includes utilities for **BLAST** searches and taxonomic subset extraction.
 
 ---
 
-## ⚙️ Workflow
+# Table of Contents
 
-The pipeline consists of three main stages followed by accessory stages:
-
-### 🧩 Part 1 — Dataset Integration
-
-* Automatic detection of complete datasets
-* Abundance table used as **master reference**
-* Integration of:
-
-  * SINTAX taxonomy
-  * FASTA sequences
-* Generates:
-
-  * Concatenated datasets
-  * Fungi subset
-  * Non-annotated subset
-  * Full eukaryote dataset
+- [Features](#features)
+- [Workflow](#workflow)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Input Structure](#input-structure)
+- [Directory Structure](#directory-structure)
+- [Output Structure](#output-structure)
+- [Taxonomic Collapse Strategies](#taxonomic-collapse-strategies)
+- [Ecological Annotation](#ecological-annotation)
+- [Integration with R](#integration-with-r)
+- [License](#license)
 
 ---
 
-### 🧬 Part 2 — Taxonomic Collapse & Database Construction
+# Features
 
-* OTU collapsing based on selected strategy:
+✅ Supports multiple molecular markers
 
-  * `species_only`
-  * `genus`
-  * `all` (deepest confident rank)
-* Representative sequence selection (longest sequence with complete taxonomy)
-* Abundance aggregation across samples
-* Taxonomy sanitization based on confidence thresholds
-* SPPN assignment (unique identifiers)
-* Integration of fungal ecological traits
-* Final database generation
-* Generates:
+- ITS
+- 16S 
+- CO1
 
-  * Final database
+✅ Automatic dataset discovery
 
----
+✅ Taxonomic harmonization
 
-### 📦 Part 3 — Export for R (phyloseq-ready)
+✅ Persistent taxonomic identifiers (SPPN)
 
-* Generates:
+✅ Taxonomic collapsing
 
-  * taxonomy table
-  * abundance table
-  * sequence table
-  * fungal traits table
+- Species
+- Genus
+- Lowest confident rank
 
----
+✅ Ecological annotation
 
-### 📦 Part 4 — Build Krona2 file (accessory)
+- FungalTraits
+- FAPROTAX
 
-* Generates:
+✅ Phyloseq-ready export
 
-  * Krona2-ready table
+✅ Krona visualization
 
----
+✅ Local BLAST utilities
 
-### 📦 Part 5 — Subset by taxa (accessory/optional)
+✅ Taxonomic subset extraction
 
-* Generates:
-
-  * Count table for the specified taxa 
-  * Sequences file
+✅ Modular architecture for future expansion
 
 ---
 
-## 🛠 Installation
+# Workflow
 
-### Requirements
+MetaDiv Builder is organized into five independent but interconnected modules.
 
-* Linux (recommended)
-* Python ≥ 3.8
-* Snakemake ≥ 7
-* Conda (recommended)
+## 1. Dataset Integration
 
-### Setup
+Automatically detects complete metabarcoding datasets and integrates:
+
+- abundance tables
+- representative sequences
+- SINTAX taxonomy
+
+Outputs:
+
+- Concatenated datasets
+- Fungi-only datasets
+- Bacteria-only datasets
+- Metazoa-only datasets
+- All prokaryotes datasets
+- All eukaryotes datasets
+- Quality-control summaries
+
+---
+
+## 2. Taxonomic Harmonization
+
+Performs:
+
+- Taxonomy parsing
+- Confidence filtering
+- Taxonomic collapsing
+- Representative sequence selection
+- SPPN identifier assignment
+
+Supported collapse strategies:
+
+- `species_only`
+- `genus`
+- `lowest_rank`
+
+---
+
+## 3. Ecological Annotation
+
+Adds ecological information using specialized databases.
+
+Current supported databases:
+
+- **FungalTraits** (ITS)
+- **FAPROTAX** (16S)
+
+The ecological annotation module is independent from the taxonomic engine, allowing future ecological databases to be incorporated without modifying the core workflow.
+
+---
+
+## 4. Output Generation
+
+Creates standardized datasets for downstream analyses.
+
+Outputs include:
+
+- Final integrated database
+- Functional ecology tables
+- Phyloseq-ready files
+- Krona tables
+- Representative FASTA files
+
+---
+
+## 5. Accessory Modules
+
+Additional utilities include:
+
+- Local BLAST searches
+- Taxonomic subset extraction
+- Future analytical extensions
+
+---
+
+# Installation
+
+## Windows
+
+### 1. Install Miniconda
+
+Download and install Miniconda:
+
+https://www.anaconda.com/download
+
+---
+
+### 2. Clone the repository
 
 ```bash
-git clone https://github.com/Burn121212/DB-Builder.git
-cd DB-Builder
+git clone https://github.com/Burn121212/MetaDiv-Builder.git
+
+cd MetaDiv-Builder
 ```
 
-Create environment:
+---
+
+### 3. Create the MetaDiv Builder environment
 
 ```bash
-conda create -c conda-forge -c bioconda -n dbbuilder snakemake
-conda activate dbbuilder
+conda env create -f metadiv_builder_win.yml
 ```
 
 ---
 
-## 🚀 Usage
+### 4. Activate the environment
 
 ```bash
-snakemake --use-conda --config input_directory="input_directory" output_directory="output_directory"
+conda activate metadiv
 ```
 
----
-
-### ⚙️ Parameters
-
-| Parameter           | Description                    |
-| ------------------- | ------------------------------ |
-| `input_directory`   | Path to input datasets         |
-| `output_directory`  | DB-Builder working directory   |
-| `collapse_mode`     | `fungi` or `all_eukaryotes`    |
-| `collapse_strategy` | `species_only`, `genus`, `all` |
-| `p-value_threshold` | Confidence threshold (0.0–1.0) |
-| `taxonomic_filter`* | Taxon to subset                |
-|`taxonmic_rank`*     | Rank of the taxon to subset    |
-
-Default parameters are `all_eukaryotes`, `species_only`, and `1.0`.
-
-*optional
+> **Note:** If your environment uses a different name, replace `metadiv` with the name specified inside `metadiv_builder_win.yml`.
 
 ---
 
-### ▶️ Example
-
-Run the workflow:
+### 5. Launch Jupyter Notebook
 
 ```bash
-snakemake --cores 4 --use-conda --config input_directory="~/my_dataset/dbbuild_input" output_directory="~/my_dataset/dbbuild_out"
+jupyter notebook
 ```
 
-Run the workflow and retrieve a subset for a specific taxon. If the results of the main workflow are already available, then this command will only retreieve a subset:
+Open
+
+```
+MetaDiv_Builder_v1_7.ipynb
+```
+
+and run all notebook cells.
+
+---
+
+# macOS / Linux
+
+## 1. Install Miniconda
+
+Download and install Miniconda:
+
+https://www.anaconda.com/download
+
+---
+
+## 2. Clone the repository
 
 ```bash
-snakemake --cores 4 --use-conda --config input_directory="~/my_dataset/dbbuild_input" output_directory="~/my_dataset/dbbuild_out" taxonomic_rank="family" taxonomic_filter="Amanitaceae"
-```
----
+git clone https://github.com/Burn121212/MetaDiv-Builder.git
 
-## 📥 Input
-
-Each dataset must include:
-
-```
-<PREFIX>_otu_abundance_table.csv
-<PREFIX>_sequences.fasta
-<PREFIX>_taxonomy.sintax.txt
-```
-
-### Requirements
-
-* Matching OTU IDs across all files
-* SINTAX taxonomy format
-* FASTA headers correspond to OTUs
-
----
-
-## 📤 Output
-
-### Part 1
-
-```
-concatenated_tables/
-├── <PREFIX>_concatenated.csv
-├── Fungi_concatenated/<PREFIX>_fungi.csv
-├── Non_annotated/<PREFIX>_non_annotated.csv
-├── AllEuk_concatenated/<PREFIX>_all_eukaryotes.csv
+cd MetaDiv-Builder
 ```
 
 ---
 
-### Part 2 (Main output)
+## 3. Create the MetaDiv Builder environment
 
-```
-FINAL_DB/
-├── Final_Database_<strategy>_all_eukaryotes_p<value>.csv
-├── Final_Database_<strategy>_fungi_p<value>.csv
-├── Collapse_Log_<strategy>_<suffix>_p<value>.txt
+```bash
+conda env create -f metadiv_builder_linux_ios.yml
 ```
 
 ---
 
-### Part 3 (For R)
+## 4. Activate the environment
 
-```
-For_R/<tag>/
-├── taxonomy.csv
-├── abundance_table.csv
-├── sequences.fasta
-├── fungal_traits_table.csv
+```bash
+conda activate metadiv
 ```
 
----
-
-### Part 4 (For Krona2)
-
-```
-krona2/
-├── <dataset_name>_krona_<collapse_strategy>_<collapse_mode>_p<pvalue_threshold>.csv
-```
+> **Note:** If your environment uses a different name, replace `metadiv` with the name specified inside `metadiv_builder_linux_ios.yml`.
 
 ---
 
-### Part 5 
+## 5. Launch Jupyter Notebook
 
-```
-subset/
-├── <dataset_name>_subset_<taxonomic_rank>_<taxonomic_filter>_p<pvalue_threshold>.csv
-├── <dataset_name>_subset_<taxonomic_rank>_<taxonomic_filter>_p<pvalue_threshold>.fasta
+```bash
+jupyter notebook
 ```
 
----
-
-## 🔬 Pipeline Details
-
-### Dataset Discovery
-
-Only complete datasets (abundance + taxonomy + sequences) are processed automatically. 
-
----
-
-### Master Table Logic
-
-* Abundance tables define the OTU universe
-* Only OTUs present in abundance tables are retained
-
----
-
-### Collapse Strategies
-
-#### `species_only`
-
-* Collapse only if species-level annotation meets threshold
-
-#### `genus`
-
-* Collapse at genus level if confidence threshold is met
-
-#### `all`
-
-* Recursive collapse using deepest confident rank:
+Open
 
 ```
-species → genus → family → order → class → phylum → domain
+MetaDiv_Builder_v1_7.ipynb
+```
+
+and run all notebook cells.
+
+---
+
+Each dataset must contain:
+
+```
+DatasetName_abundance.csv
+
+DatasetName_taxonomy.sintax
+
+DatasetName_sequences.fasta
+```
+
+Configure the parameters in the first section of the notebook and execute all cells.
+
+MetaDiv Builder automatically detects complete datasets and generates the corresponding outputs.
+
+---
+
+# Input Structure
+
+Each molecular marker has its own folder.
+
+```
+input/
+
+├── ITS/
+│   ├── Dataset_abundance.csv
+│   ├── Dataset_taxonomy.sintax
+│   └── Dataset_sequences.fasta
+│
+├── 16S/
+│   ├── Dataset_abundance.csv
+│   ├── Dataset_taxonomy.sintax
+│   └── Dataset_sequences.fasta
+│
+└── CO1/
+    ├── Dataset_abundance.csv
+    ├── Dataset_taxonomy.sintax
+    └── Dataset_sequences.fasta
 ```
 
 ---
 
-### Representative Selection
+# Directory Structure
 
-* Requires **complete taxonomy (d,p,c,o,f,g,s)**
-* Selects **longest sequence**
+```
+MetaDiv Builder/
 
----
-
-### Taxonomy Sanitization
-
-* Removes low-confidence taxonomic assignments
-* Applies cascading consistency across ranks
-
----
-
-### SPPN Assignment
-
-* Unique identifiers based on deepest confident taxon
-* Enables consistent downstream analysis
+├── input/
+├── databases/
+├── output/
+├── R/
+├── BLAST/
+├── subsets/
+└── docs/
+```
 
 ---
 
-### Fungal Traits Integration
+# Output Structure
 
-* Matches genus names to traits database
-* Adds ecological metadata
+Independent output folders are generated for each molecular marker.
+
+```
+output/
+
+├── ITS/
+├── 16S/
+└── CO1/
+```
+
+Each output contains:
+
+- Final database
+- Functional ecology
+- For_R
+- Krona
+- Concatenated tables
+- Log files
 
 ---
 
-### Subset taxa
+# Taxonomic Collapse Strategies
 
-* Given a rank (e.g. "family") and a taxon (e.g. "Amanitaceae") or list of taxa separated by a comma (e.g. "Amanitaceae,Boletaceae") provides a table and a sequence file that match the subset parameters `taxonomic_rank` and `taxonomic_filter` 
+## `species_only`
 
----
-
-### For_R Export
-
-* Produces phyloseq-compatible files
-* Ensures interoperability with R workflows
+Collapse only when the species assignment satisfies the selected confidence threshold.
 
 ---
 
-## 📜 License
+## `genus`
 
-This project is licensed under:
+Collapse at the genus level.
+
+---
+
+## `lowest_rank`
+
+Automatically collapses at the deepest taxonomic rank satisfying the selected confidence threshold.
+
+---
+
+# Ecological Annotation
+
+| Marker | Ecological Database |
+|----------|--------------------|
+| ITS | FungalTraits |
+| 16S | FAPROTAX |
+| CO1 | Planned |
+
+---
+
+# Integration with R
+
+MetaDiv Builder exports standardized files directly compatible with the official R analysis scripts.
+
+Generated files include:
+
+- abundance table
+- taxonomy table
+- representative sequences
+- ecological annotation tables
+- sample metadata template
+
+These files can be imported directly into:
+
+- phyloseq
+- vegan
+- hillR
+- picante
+- ggplot2
+
+allowing fully reproducible biodiversity analyses.
+
+---
+
+# Citation
+
+If you use MetaDiv Builder in your research, please cite:
+
+**Águila B., Romero-Guiterrez M. F. et al. **
+
+*MetaDiv Builder: An integrated platform for metabarcoding data integration, ecological annotation, and biodiversity analysis.*
+
+(Manuscript in preparation.)
+
+---
+
+# License
 
 **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**
+
+---
+
+## Authors
+
+**Bernardo Águila, Miguel F. Romero-Guiterrez**  
+Instituto de Biología  
+Universidad Nacional Autónoma de México (UNAM)
+
+Contributions and suggestions are welcome.
