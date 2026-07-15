@@ -81,6 +81,7 @@ Automatically detects complete metabarcoding datasets and integrates:
 
 SINTAX taxonomic reference DB to classify the fasta file with SINTAX: 
 https://drive.google.com/drive/folders/1a6npB7lSocAyR3t5JO3z6Gebcg7_odtr?usp=drive_link
+
 Outputs:
 
 - Concatenated datasets
