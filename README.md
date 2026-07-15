@@ -75,10 +75,11 @@ MetaDiv Builder is organized into five independent but interconnected modules.
 
 Automatically detects complete metabarcoding datasets and integrates:
 
-- abundance tables
-- representative sequences
-- SINTAX taxonomy
+- abundance tables .csv
+- representative sequences .fasta
+- SINTAX taxonomy .txt
 
+SINTAX TAXONOMIC ref DB to classify .fasta file: https://drive.google.com/drive/folders/1a6npB7lSocAyR3t5JO3z6Gebcg7_odtr?usp=drive_link
 Outputs:
 
 - Concatenated datasets
@@ -95,7 +96,7 @@ Outputs:
 
 Performs:
 
-- Taxonomy parsing
+- Taxonomy parsing using SINTAX reference DB 
 - Confidence filtering
 - Taxonomic collapsing
 - Representative sequence selection
