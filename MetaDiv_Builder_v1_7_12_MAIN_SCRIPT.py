@@ -1201,7 +1201,13 @@ def build_final_db_filename(suffix: str) -> str:
     return f"Final_Database_{COLLAPSE_STRATEGY}_{suffix}_{sintax_tag}_{sppn_tag}.csv"
 
 def build_collapse_log_filename(suffix: str) -> str:
-    return f"Collapse_Log_{COLLAPSE_STRATEGY}_{suffix}_{format_threshold_for_name(P_VALUE_THRESHOLD)}.txt"
+    sintax_tag = format_threshold_for_name(P_VALUE_THRESHOLD)
+    sppn_tag = f"sppn{format_threshold_short(SPPN_P_THRESHOLD)}"
+
+    return (
+        f"Collapse_Log_{COLLAPSE_STRATEGY}{suffix}"
+        f"{sintax_tag}_{sppn_tag}.txt"
+    )
 
 def build_report_filename(suffix: str) -> str:
     """
