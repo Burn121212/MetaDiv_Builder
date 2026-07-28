@@ -19,8 +19,8 @@ MetaDiv Builder currently integrates ecological reference databases such as **Fu
 
 - [Features](#features)
 - [Workflow](#workflow)
-- [Installation](#installation)
-- [Quick Start](#quick-start)
+- [Quick start](#quick-start)
+- [Input Requirements](#input-requirements)
 - [Input Structure](#input-structure)
 - [Directory Structure](#directory-structure)
 - [Output Structure](#output-structure)
@@ -150,7 +150,7 @@ Additional utilities include:
 
 ---
 
-# Installation
+# Quick start
 
 ## Windows
 
@@ -259,6 +259,65 @@ MetaDiv_Builder_v1_7.ipynb
 and run all notebook cells.
 
 ---
+
+## 5.1. Alternatively, run the main script in the command line
+
+Examples:
+
+```bash
+# ITS, all eukaryotes, strict species-level collapse:
+    python MetaDiv_Builder_v1_7_12_MAIN_SCRIPT.py \
+      --mode ITS \
+      --subset-mode all_eukaryotes \
+      --collapse-strategy species_only \
+      --p-value-threshold 1.0 \
+      --sppn-p-threshold 0.8
+
+ # ITS, fungi only, recursive lowest-rank collapse:
+    python MetaDiv_Builder_v1_7_12_MAIN_SCRIPT.py \
+      --mode ITS \
+      --subset-mode only_fungi \
+      --collapse-strategy all \
+      --p-value-threshold 0.8
+
+ # 16S, bacteria only, with FAPROTAX:
+    python MetaDiv_Builder_v1_7_12_MAIN_SCRIPT.py \
+      --mode 16S \
+      --subset-mode only_bacteria \
+      --run-faprotax-16s
+
+ # CO1, metazoa only, no intermediate development files:
+    python MetaDiv_Builder_v1_7_12_MAIN_SCRIPT.py \
+      --mode CO1 \
+      --subset-mode only_metazoa \
+      --no-dev-mode
+
+ # Use a custom project directory:
+    python MetaDiv_Builder_v1_7_12_MAIN_SCRIPT.py \
+      --project-dir /path/to/metadiv_project \
+      --mode ITS
+
+ # Use a custom project directory to process ITS data, collapse at the genus level, use FungalTraits to annotate fungal lifestyles, and build a Krona-compatible output table for the full dataset:
+    python MetaDiv_Builder_v1_7_12_MAIN_SCRIPT.py \
+     --project-dir /path/to/metadiv_project \
+     --mode ITS  \
+     --subset-mode all_eukaryotes  \
+     --collapse-strategy genus \
+     --run-fungaltraits-its \
+     --fungal-traits-db databases/ecological_reference_db/Fungal_Traits_DB.txt \
+     --run-krona-export \
+     --no-run-krona-per-sample-export \
+```
+
+To show all command line options run:
+
+```bash
+python MetaDiv_Builder_v1_7_12_MAIN_SCRIPT.py --help
+```
+
+---
+
+# Input Requirements
 
 Each dataset must contain:
 
