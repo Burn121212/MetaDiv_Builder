@@ -1,0 +1,37 @@
+name: metadiv
+
+channels:
+  - conda-forge
+  - nodefaults
+
+dependencies:
+  # Python
+  - python=3.12.*
+  - pip
+  - numpy=1.26.*
+  - pandas=2.2.*
+  - pyarrow=16.1.*
+  - openpyxl=3.1.*
+  - requests
+  - pyyaml
+  - beautifulsoup4
+  - html5lib
+  - matplotlib
+  - jupyterlab
+  - notebook
+  - ipykernel
+
+  # R
+  - r-base=4.5.*
+  - r-biocmanager
+  - r-data.table
+  - r-dplyr
+  - r-tidyr
+  - r-tibble
+  - r-readr
+  - r-ggplot2
+  - r-vegan
+
+  # Native libraries required by Bioconductor packages
+  - zlib
+  - libzlib
