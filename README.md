@@ -175,7 +175,7 @@ cd MetaDiv-Builder
 ### 3. Create the MetaDiv Builder environment
 
 ```bash
-conda env create -f metadiv_builder_windows.yml
+conda env create -f metadiv_environment.yml
 ```
 
 ---
@@ -229,7 +229,7 @@ cd MetaDiv-Builder
 ## 3. Create the MetaDiv Builder environment
 
 ```bash
-conda env create -f metadiv_builder_linux_ios.yml
+conda env create -f metadiv_environment.yml
 ```
 
 ---
