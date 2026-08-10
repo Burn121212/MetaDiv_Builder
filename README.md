@@ -134,7 +134,7 @@ Outputs include:
 
 - Final integrated database
 - Functional ecology tables
-- Phyloseq-ready files
+- Phyloseq-ready files (for phylogenetic diversity)
 - Krona tables
 - Representative FASTA files
 
@@ -186,8 +186,6 @@ conda env create -f metadiv_environment.yml
 conda activate metadiv
 ```
 
-> **Note:** If your environment uses a different name, replace `metadiv` with the name specified inside `metadiv_builder_win.yml`.
-
 ---
 
 ### 5. Launch Jupyter Notebook
@@ -199,7 +197,7 @@ jupyter notebook
 Open
 
 ```
-MetaDiv_Builder_v1_7.ipynb
+MetaDiv_Builder_v1_7_MAIN_SCRIPT.ipynb
 ```
 
 and run all notebook cells.
@@ -219,7 +217,7 @@ https://www.anaconda.com/download
 ## 2. Clone the repository
 
 ```bash
-git clone https://github.com/Burn121212/MetaDiv-Builder.git
+git clone https://github.com/Burn121212/MetaDiv_Builder.git
 
 cd MetaDiv-Builder
 ```
