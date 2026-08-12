@@ -72,6 +72,11 @@ MetaDiv Builder currently integrates ecological reference databases such as **Fu
 
 MetaDiv Builder is organized into five independent but interconnected modules.
 
+<p align="center">
+  <img src="https://github.com/Burn121212/MetaDiv_Builder/blob/main/docs/Diagram_Structure_MetaDiv_Builder.png" alt="MetaDiv Diagram Workflow" width="300"/>
+</p>
+
+
 ## 1. Dataset Integration
 
 Automatically detects complete metabarcoding datasets and integrates:
