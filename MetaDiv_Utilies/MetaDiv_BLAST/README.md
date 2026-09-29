@@ -6,7 +6,7 @@ MetaDiv_BLAST compares query DNA sequences against a MetaDiv Final Database usin
 - Python with:
   - pandas
   - pathlib
-  - 
+    
 ## Install the NCBI BLAST Docker image with:
 docker pull ncbi/blast  ncbi/blast:latest
 
@@ -40,7 +40,9 @@ MetaDiv_Utilities/
     
 ## Accepted extensions:
 .fasta
+
 .fa
+
 .fna
 
 ## Run
