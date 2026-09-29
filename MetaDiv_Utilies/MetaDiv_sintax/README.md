@@ -2,6 +2,23 @@
 
 VSEARCH/SINTAX taxonomic classification utility for MetaDiv Builder
 
+
+## Jupyter notebook for Windows
+
+### Docker requirement
+
+MetaDiv_sintax runs VSEARCH/SINTAX in windows through Docker.
+
+1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+2. Start Docker Desktop before running the notebook.
+3. Open the MetaDiv_sintax script and set the mode (16S, ITS or CO1) 
+4. Indicate in the script the name of the reference database to use
+5. Run the jupyter notebook cells
+
+
+MetaDiv uses the following PipeCraft VSEARCH image: pipecraft/vsearch:2.30.4-pc1.2.0
+
+
 ## CLI script for Linux/MacOS
 
 Alternative to the jupyter notebook. It is possible to install vsearch in a dedicated anaconda environment.
