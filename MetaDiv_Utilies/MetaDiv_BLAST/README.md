@@ -39,11 +39,9 @@ MetaDiv_Utilities/
         └── query.fasta
     
 ## Accepted extensions:
-.fasta
-
-.fa
-
-.fna
+- .fasta
+- .fa
+- .fna
 
 ## Run
 Run the notebook cells in order.
