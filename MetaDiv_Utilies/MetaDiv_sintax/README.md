@@ -10,19 +10,19 @@ Alternative to the jupyter notebook. It is possible to install vsearch in a dedi
 
 Starting in the MetaDiv base directory:
 
-1. Activate metadiv environment
+1. Activate metadiv environment:
 
 ```bash
 conda activate metadiv
 ```
 
-2. Display options and examples
+2. Display options and examples:
 
 ```bash
 python MetaDiv_Utilies/MetaDiv_sintax/MetaDiv_sintax.py --help
 ```
 
-3. Run example assuming database is availabe (see instructions in MetaDiv_Builder/databases/README.md)
+3. Run example assuming database is availabe (see instructions in MetaDiv_Builder/databases/taxonomic_reference_db/README.md):
 
 ```bash
 python MetaDiv_Utilies/MetaDiv_sintax/MetaDiv_sintax.py \
