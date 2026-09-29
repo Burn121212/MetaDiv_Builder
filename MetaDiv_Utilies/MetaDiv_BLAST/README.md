@@ -59,7 +59,9 @@ Results are saved in:
 MetaDiv_Utilities/
 
 └── MetaDiv_BLAST/
+
     └── blast_results/
+    
     
 Output files:
 blast_results.tsv
