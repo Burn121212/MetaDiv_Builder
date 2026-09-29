@@ -363,7 +363,7 @@ class ArgumentFormatter(
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
-        prog="metadiv_sintax.py",
+        prog="MetaDiv_sintax.py",
         formatter_class=ArgumentFormatter,
         description=(
             "Run VSEARCH --sintax on MetaDiv Builder FASTA files and write "
@@ -373,7 +373,7 @@ def parse_arguments():
 Examples:
 
   Docker runtime, one ITS FASTA file:
-    python metadiv_sintax.py \
+    python MetaDiv_sintax.py \
       --mode ITS \
       --fasta-files ATLASMXBC_red_sequences.fasta \
       --reference-db SINTAX_EUKARYOME_ITS_v2.0.fasta \
@@ -382,7 +382,7 @@ Examples:
       --overwrite-existing
 
   Conda runtime, automatically create/use environment MetaDiv_sintax:
-    python metadiv_sintax.py \
+    python MetaDiv_sintax.py \
       --mode ITS \
       --fasta-files ATLASMXBC_red_sequences.fasta \
       --reference-db SINTAX_EUKARYOME_ITS_v2.0.fasta \
@@ -391,7 +391,7 @@ Examples:
       --auto-create-conda-env
 
   Classify every FASTA under input/COI using Docker:
-    python metadiv_sintax.py \
+    python MetaDiv_sintax.py \
       --mode COI \
       --all-fastas \
       --reference-db SINTAX_MIDORI2_LONGEST_NUC_GB271_CO1.udb \
