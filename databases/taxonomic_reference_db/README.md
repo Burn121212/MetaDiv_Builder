@@ -34,6 +34,10 @@ gdown \
 -O databases/taxonomic_reference_db/SINTAX_EUKARYOME_ITS_v2.0.fasta \
 1TU7WiKNN6cHG8_dn0GpDT6bb-YbBisF5
 ```
+## Download files directly
+
+Alternatively, you can download the databases at https://drive.google.com/drive/folders/1a6npB7lSocAyR3t5JO3z6Gebcg7_odtr?usp=sharing
+
 ## References
 
 1. Tedersoo, L., Hosseyni Moghaddam, M. S., Mikryukov, V., Hakimzadeh, A., Bahram, M., Nilsson, R. H., ... & Anslan, S. (2024). EUKARYOME: the rRNA gene reference database for identification of all eukaryotes. *Database*, 2024, baae043.
