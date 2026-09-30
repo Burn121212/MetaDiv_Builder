@@ -1,6 +1,6 @@
 # MetaDiv_metadata
 
-MetaDiv_metadata assigns reference metadata to a `sample_metadata_to_fill.csv` table using sample IDs.
+MetaDiv_metadata assigns reference metadata to a `sample_metadata_to_fill.csv` obtained with MetaDiv Bulder MAIN SCRIPT in the For_R/ diretory, using a the sample_IDs of a reference sample file `reference_metadata.csv`
 
 ## Input
 
