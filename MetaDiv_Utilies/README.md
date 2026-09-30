@@ -47,6 +47,17 @@ then be performed using Krona-compatible tools.
 
 ---
 
+### MetaDiv_subsets
+
+Creates subsets of MetaDiv biodiversity databases.
+
+The utility allows users to extract selected portions of a database according
+to criteria such as **taxonomic groups, sample lists, or user-defined
+queries**, facilitating targeted ecological analyses without modifying the
+original MetaDiv database.
+
+---
+
 ### MetaDiv_metadata
 
 Integrates external sample metadata with MetaDiv sample identifiers.
@@ -58,16 +69,5 @@ table and appends additional ecological or methodological information, such as
 
 The resulting metadata table can then be used in downstream ecological
 analyses, including phyloseq workflows.
-
----
-
-### MetaDiv_subsets
-
-Creates subsets of MetaDiv biodiversity databases.
-
-The utility allows users to extract selected portions of a database according
-to criteria such as **taxonomic groups, sample lists, or user-defined
-queries**, facilitating targeted ecological analyses without modifying the
-original MetaDiv database.
 
 ---
