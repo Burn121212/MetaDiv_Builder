@@ -35,7 +35,7 @@ final_database_name = "Final_Database_species_only_all_prokaryotes_p08_sppn08.cs
 
 The database must be located in:
 
-MetaDiv/output/<mode>/FINAL_DB/Final_Database_*.csv
+MetaDiv/output/<"mode">/FINAL_DB/Final_Database_*.csv
 
 The Final Database must contain the columns:
 
