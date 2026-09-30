@@ -4505,7 +4505,7 @@ def export_for_r_package(final_csv_path: Path, suffix: str, site_cols: list):
 
     abundance_path = outdir / "abundance_table.csv"
     taxonomy_table_path = outdir / "taxonomy_table.csv"
-    metadata_path = outdir / "sample_metadata.csv"
+    metadata_path = outdir / "sample_metadata_to_fill.csv"
     fasta_path = outdir / "sequences.fasta"
 
     tax_cols = [c for c in TAX_RANKS if c in columns]
@@ -4624,7 +4624,7 @@ Samples exported: {len(valid_site_cols):,}
 Files generated:
 - abundance_table.csv
 - taxonomy_table.csv
-- sample_metadata.csv
+- sample_metadata_to_fill.csv
 - sequences.fasta
 
 Important note about sample names:
@@ -4638,7 +4638,7 @@ library(Biostrings)
 
 otu <- read.csv("abundance_table.csv", row.names = 1, check.names = FALSE)
 tax <- read.csv("taxonomy_table.csv", row.names = 1, check.names = FALSE)
-meta <- read.csv("sample_metadata.csv", row.names = 1, check.names = FALSE)
+meta <- read.csv("sample_metadata_to_fill.csv", row.names = 1, check.names = FALSE)
 seqs <- readDNAStringSet("sequences.fasta")
 
 ps <- phyloseq(
@@ -4653,7 +4653,7 @@ ps <- phyloseq(
 
     print(f"   ✅ abundance_table.csv: {feature_count:,} features x {len(valid_site_cols):,} samples")
     print(f"   ✅ taxonomy_table.csv: {feature_count:,} features")
-    print(f"   ✅ sample_metadata.csv: {len(metadata):,} samples")
+    print(f"   ✅ sample_metadata_to_fill.csv: {len(metadata):,} samples")
     print(f"   ✅ sequences.fasta: {nseq:,} sequences")
     print(f"   📁 For_R folder: {outdir.resolve()}")
 
