@@ -50,12 +50,9 @@ SPPN is used as the BLAST reference sequence ID.
 
 ## 3. Add the query FASTA
 
-Place exactly one query FASTA file in:
+Place exactly one query FASTA file (with single or multiple sequences) in:
 
-MetaDiv_Utilities/
-└── MetaDiv_BLAST/
-    └── query/
-        └── query.fasta
+MetaDiv_Utilities/MetaDiv_BLAST/query/query.fasta
 
 ## Accepted extensions
 
@@ -81,9 +78,7 @@ The script automatically:
 
 Results are saved in:
 
-MetaDiv_Utilities/
-└── MetaDiv_BLAST/
-    └── blast_results/
+MetaDiv_Utilities/MetaDiv_BLAST/blast_results/
 
 ## Output files
 
