@@ -30,8 +30,9 @@ conda install -c conda-forge gdown -y -q
 3. Download a reference file using the Google Drive code:
 
 ```bash
-gdown --id 1TU7WiKNN6cHG8_dn0GpDT6bb-YbBisF5 \
--O databases/taxonomic_reference_db/SINTAX_EUKARYOME_ITS_v2.0.fasta
+gdown \
+-O databases/taxonomic_reference_db/SINTAX_EUKARYOME_ITS_v2.0.fasta \
+1TU7WiKNN6cHG8_dn0GpDT6bb-YbBisF5
 ```
 ## References
 
