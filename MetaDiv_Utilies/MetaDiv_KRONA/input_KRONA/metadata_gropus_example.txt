@@ -1,0 +1,11 @@
+sample	estado
+MXA_G5134	Yucatán
+MXA_G5135	Campeche
+MXA_G5136	Campeche
+MXA_G5137	Yucatán
+MXA_G5138	Yucatán
+MXA_G5139	Quintana Roo
+MXA_MX10	Michoacán
+MXA_MX11	Veracruz
+MXA_MX12	Veracruz
+MXA_MX13	Tabasco
