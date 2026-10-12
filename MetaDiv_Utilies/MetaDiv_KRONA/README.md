@@ -10,24 +10,14 @@
 
 ## Python CLI for Windows, Linux and macOS
 
-Requires **Python 3.9+**, `pandas`, and `numpy`.
+MetaDiv_KRONA uses the existing **metadiv** Conda environment, which already includes the required Python dependencies.
 
-No Jupyter, Docker, Excel, KronaTools, or `ktImportText` is required. Charts can be generated offline after installing dependencies.
+No additional installation is required.
 
-### 1. Install dependencies
-
-Using an existing MetaDiv environment:
+### 1. Activate the MetaDiv environment
 
 ```bash
 conda activate metadiv
-python -m pip install pandas numpy
-```
-
-Alternatively, create a dedicated environment:
-
-```bash
-conda create -n metadiv_krona python=3.11 pandas numpy
-conda activate metadiv_krona
 ```
 
 ### 2. Prepare input files
