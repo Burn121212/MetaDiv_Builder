@@ -97,7 +97,7 @@ When required, sequences can be taxonomically classified using **SINTAX/VSEARCH*
 
 ---
 
-## 2. MetaDiv Builder Core
+## 2. MetaDiv Builder Main Script (Core)
 
 The core workflow validates and harmonizes the input datasets through:
 
