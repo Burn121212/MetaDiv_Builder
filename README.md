@@ -212,7 +212,7 @@ jupyter notebook
 Open
 
 ```
-MetaDiv_Builder_v1_7_MAIN_SCRIPT.ipynb
+MetaDiv_Builder_v1_8_2_MAIN_SCRIPT.ipynb
 ```
 
 and run all notebook cells.
@@ -266,7 +266,7 @@ jupyter notebook
 Open
 
 ```
-MetaDiv_Builder_v1_7.ipynb
+MetaDiv_Builder_v1_8_2.ipynb
 ```
 
 and run all notebook cells.
@@ -279,7 +279,7 @@ Examples:
 
 ```bash
 # ITS, all eukaryotes, strict species-level collapse:
-    python MetaDiv_Builder_v1_7_13_MAIN_SCRIPT.py \
+    python MetaDiv_Builder_v1_8_2_MAIN_SCRIPT.py \
       --mode ITS \
       --subset-mode all_eukaryotes \
       --collapse-strategy species_only \
@@ -287,31 +287,31 @@ Examples:
       --sppn-p-threshold 0.8
 
  # ITS, fungi only, recursive lowest-rank collapse:
-    python MetaDiv_Builder_v1_7_13_MAIN_SCRIPT.py \
+    python MetaDiv_Builder_v1_8_2_MAIN_SCRIPT.py \
       --mode ITS \
       --subset-mode only_fungi \
       --collapse-strategy all \
       --p-value-threshold 0.8
 
  # 16S, bacteria only, with FAPROTAX:
-    python MetaDiv_Builder_v1_7_13_MAIN_SCRIPT.py \
+    python MetaDiv_Builder_v1_8_2_MAIN_SCRIPT.py \
       --mode 16S \
       --subset-mode only_bacteria \
       --run-faprotax-16s
 
  # CO1, metazoa only, no intermediate development files:
-    python MetaDiv_Builder_v1_7_13_MAIN_SCRIPT.py \
+    python MetaDiv_Builder_v1_8_2_MAIN_SCRIPT.py \
       --mode CO1 \
       --subset-mode only_metazoa \
       --no-dev-mode
 
  # Use a custom project directory:
-    python MetaDiv_Builder_v1_7_13_MAIN_SCRIPT.py \
+    python MetaDiv_Builder_v1_8_2_MAIN_SCRIPT.py \
       --project-dir /path/to/metadiv_project \
       --mode ITS
 
  # Use a custom project directory to process ITS data, collapse at the genus level, use FungalTraits to annotate fungal lifestyles, and build a Krona-compatible output table for the full dataset:
-    python MetaDiv_Builder_v1_7_13_MAIN_SCRIPT.py \
+    python MetaDiv_Builder_v1_8_2_MAIN_SCRIPT.py \
      --project-dir /path/to/metadiv_project \
      --mode ITS  \
      --subset-mode all_eukaryotes  \
@@ -325,7 +325,7 @@ Examples:
 To show all command line options run:
 
 ```bash
-python MetaDiv_Builder_v1_7_13_MAIN_SCRIPT.py --help
+python MetaDiv_Builder_v1_8_2_MAIN_SCRIPT.py --help
 ```
 
 ---
