@@ -472,7 +472,7 @@ If you use MetaDiv Builder in your research, please cite:
 
 **Águila B., Romero-Guiterrez M. F. et al. **
 
-*MetaDiv Builder: An integrated platform for metabarcoding data integration, ecological annotation, and biodiversity analysis.*
+*MetaDiv Builder: a modular toolkit for harmonizing heterogeneous metabarcoding datasets and predictive functional ecology .*
 
 (Manuscript in preparation.)
 
