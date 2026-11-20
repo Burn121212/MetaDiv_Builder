@@ -1164,14 +1164,21 @@ Until the associated manuscript is published, users are encouraged to indicate t
 
 ---
 
-# License
+## License
 
-MetaDiv Builder is distributed under the:
+MetaDiv Builder is distributed under the
+**PolyForm Noncommercial License 1.0.0**.
 
-**Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**
+The software may be used, studied, and modified for
+noncommercial scientific research and educational purposes,
+subject to the license terms.
 
-See the [LICENSE](LICENSE) file for the full licensing terms.
+Commercial use requires separate authorization from
+the applicable copyright holders.
 
+See the [LICENSE](LICENSE) file for the complete terms.
+
+License: https://polyformproject.org/licenses/noncommercial/1.0.0/
 ---
 
 # Authors
